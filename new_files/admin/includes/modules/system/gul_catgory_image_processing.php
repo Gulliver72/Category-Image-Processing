@@ -55,15 +55,15 @@ class gul_category_image_processing extends StdModule
                                xtc_button_link(BUTTON_CANCEL, xtc_href_link($this->module_filename, 'set=' . $_GET['set'] . '&module=' . $this->code)) .
 
                                '<div class="ajax_responce" style="margin-bottom:15px;"><hr>' .
-                               '<div class="ajax_imgname"></div>' .
-                               sprintf(MODULE_STEP_READY_STYLE_TEXT, $ajax_img . IMAGE_STEP_INFO . '<span class="ajax_count"></span> / ' . (int)$this->max_files . '<span class="ajax_ready_info">' . IMAGE_STEP_INFO_READY . '<span>') .
-                               '<div class="process_wrapper">
-                                <div class="process_inner_wrapper">
-                                  <div id="show_image_process" style="width:' . 0 . '%;"></div>
-                                </div>
-                               </div>
-                               <div class="ajax_btn_back">' . sprintf(MODULE_STEP_READY_STYLE_BACK,xtc_button_link(BUTTON_BACK, xtc_href_link(FILENAME_MODULE_EXPORT, 'set=' . $_GET['set'] . '&module=' . $this->code))) . '</div>
-                             </div>'
+                                    '<div class="ajax_imgname"></div>' .
+                                    sprintf(MODULE_STEP_READY_STYLE_TEXT, $ajax_img . IMAGE_STEP_INFO . '<span class="ajax_count"></span> / ' . (int)$this->max_files . '<span class="ajax_ready_info">' . IMAGE_STEP_INFO_READY . '<span>') .
+                                    '<div class="process_wrapper">
+                                        <div class="process_inner_wrapper">
+                                            <div id="show_image_process" style="width:' . 0 . '%;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ajax_btn_back">' . sprintf(MODULE_STEP_READY_STYLE_BACK,xtc_button_link(BUTTON_BACK, xtc_href_link(FILENAME_MODULE_EXPORT, 'set=' . $_GET['set'] . '&module=' . $this->code))) . '</div>
+                                </div>'
                    );
 
     }
