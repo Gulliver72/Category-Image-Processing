@@ -1,0 +1,27 @@
+{
+    "name": "Image-Processing für Kategoriebilder",
+    "archiveName": "Gulliver72/category-image-processing",
+    "sourceDir": "new_files",
+    "version": "auto",
+
+    "shortDescription": "automatische Skalierung der Kategoriebilder",
+    "description": "Das Modul speichert automatisch beim Bearbeiten von Kategoriebildern diese in neuen Ordnern shoproot/images/categories/info_images und shoproot/images/categories/thumbnail_images
+Dabei erfolgt eine Bearbeitung analog der Produktbilder. Die Größen für die info_images und thumbnail_images können unter Konfiguration/Bild Optionen eingestellt werden. Auch Mergen wird unterstützt.
+Das Modul weist mittels Klassenerweiterungsmodulen im Frontend automatisch die Pfade zu. Die Thumbnail-Bilder werden im Kategorie-Listing verwendet.
+Zusätzlich ist ein Modul Imageprocessing für Kategoriebilder enthalten. Damit können bereits bestehende Kategoriebilder automatisch bearbeitet werden.",
+
+    "developer": "Bert Funke",
+    "developerWebsite": "https://bert-funke.de",
+    "website": "https://bert-funke.de",
+
+    "price": "free",
+    
+    "require": {
+        "composer/autoload": "^1.0.0",
+        "robinthehood/modified-std-module": "^0.2.0"
+    },
+
+    "modifiedCompatibility": [
+        "2.0.5.1"
+    ]
+}
