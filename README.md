@@ -1,2 +1,2 @@
 # MODUL: Kategoriebilder Größe automatisch anpassen
-für Modified 2.0.5.1
+für modified eCommerce Shopsoftware 2.0.5.1
