@@ -8,7 +8,7 @@ class gul_category_image_processing extends StdModule
 {
     public function __construct()
     {
-        $this->init('MODULE_GUL_CATEGORY_IMAGE_PROCESSING');
+        $this->init('MODULE_CATEGORY_IMAGE_PROCESSING');
         
         $this->properties = array();
         $this->files = array();
@@ -169,12 +169,12 @@ class gul_category_image_processing extends StdModule
     {
         parent::install();
         
-        $this->addConfigurationSelect('CATEGORIES_IMAGE_HEIGHT', '300', 4, 40);
-        $this->addConfigurationSelect('CATEGORIES_IMAGE_WIDTH', '300', 4, 41);
-        $this->addConfigurationSelect('CATEGORIES_IMAGE_MERGE', '', 4, 44);
-        $this->addConfigurationSelect('CATEGORIES_IMAGE_THUMBNAIL_HEIGHT', '150', 4, 42);
-        $this->addConfigurationSelect('CATEGORIES_IMAGE_THUMBNAIL_WIDTH', '150', 4, 43);
-        $this->addConfigurationSelect('CATEGORIES_IMAGE_THUMBNAIL_MERGE', '', 4, 45);
+        $this->addConfiguration('CATEGORIES_IMAGE_HEIGHT', '300', 4, 40);
+        $this->addConfiguration('CATEGORIES_IMAGE_WIDTH', '300', 4, 41);
+        $this->addConfiguration('CATEGORIES_IMAGE_MERGE', '', 4, 44);
+        $this->addConfiguration('CATEGORIES_IMAGE_THUMBNAIL_HEIGHT', '150', 4, 42);
+        $this->addConfiguration('CATEGORIES_IMAGE_THUMBNAIL_WIDTH', '150', 4, 43);
+        $this->addConfiguration('CATEGORIES_IMAGE_THUMBNAIL_MERGE', '', 4, 45);
     }
     
     public function custom()
