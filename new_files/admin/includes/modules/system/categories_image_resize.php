@@ -4,15 +4,12 @@ defined( '_VALID_XTC' ) or die( 'Direct Access to this location is not allowed.'
 use RobinTheHood\ModifiedStdModule\Classes\StdModule;
 require_once DIR_FS_DOCUMENT_ROOT . '/vendor-no-composer/autoload.php';
 
-class gul_categories_image_resize extends StdModule
+class categories_image_resize extends StdModule
 {
     public function __construct()
     {
-        $this->init('gul', 'categories_image_resize');
+        $this->init('CATEGORIES_IMAGE_RESIZE');
         
-        $this->properties = array();
-        $this->files = array();
-
         //define needed class extensions
         $this->needed_class_extensions = array();
         $this->get_needed_class_extensions();
@@ -32,7 +29,7 @@ class gul_categories_image_resize extends StdModule
         }
     }
 
-    public function display()
+    public function display(): array
     {
 
         return array('text' => '<br />' . '<div><strong>'.MODULE_CATEGORIES_IMAGE_RESIZE_STATUS_INFO.'</strong></div>' . 
@@ -59,12 +56,12 @@ class gul_categories_image_resize extends StdModule
         parent::install();
         
 		// Einstellungen Kategoriebilder installieren, wenn Modul Imageprocessing Kategoriebilder nicht installiert ist
-        if (!defined('CATEGORIES_IMAGE_HEIGHT')) $this->addConfigurationSelect('CATEGORIES_IMAGE_HEIGHT', '300', 4, 40);
-        if (!defined('CATEGORIES_IMAGE_WIDTH')) $this->addConfigurationSelect('CATEGORIES_IMAGE_WIDTH', '300', 4, 41);
-        if (!defined('CATEGORIES_IMAGE_MERGE')) $this->addConfigurationSelect('CATEGORIES_IMAGE_MERGE', '', 4, 44);
-        if (!defined('CATEGORIES_IMAGE_THUMBNAIL_HEIGHT')) $this->addConfigurationSelect('CATEGORIES_IMAGE_THUMBNAIL_HEIGHT', '150', 4, 42);
-        if (!defined('CATEGORIES_IMAGE_THUMBNAIL_WIDTH')) $this->addConfigurationSelect('CATEGORIES_IMAGE_THUMBNAIL_WIDTH', '150', 4, 43);
-        if (!defined('CATEGORIES_IMAGE_THUMBNAIL_MERGE')) $this->addConfigurationSelect('CATEGORIES_IMAGE_THUMBNAIL_MERGE', '', 4, 45);
+        if (!defined('CATEGORIES_IMAGE_HEIGHT')) $this->addConfiguration('CATEGORIES_IMAGE_HEIGHT', '300', 4, 40);
+        if (!defined('CATEGORIES_IMAGE_WIDTH')) $this->addConfiguration('CATEGORIES_IMAGE_WIDTH', '300', 4, 41);
+        if (!defined('CATEGORIES_IMAGE_MERGE')) $this->addConfiguration('CATEGORIES_IMAGE_MERGE', '', 4, 44);
+        if (!defined('CATEGORIES_IMAGE_THUMBNAIL_HEIGHT')) $this->addConfiguration('CATEGORIES_IMAGE_THUMBNAIL_HEIGHT', '150', 4, 42);
+        if (!defined('CATEGORIES_IMAGE_THUMBNAIL_WIDTH')) $this->addConfiguration('CATEGORIES_IMAGE_THUMBNAIL_WIDTH', '150', 4, 43);
+        if (!defined('CATEGORIES_IMAGE_THUMBNAIL_MERGE')) $this->addConfiguration('CATEGORIES_IMAGE_THUMBNAIL_MERGE', '', 4, 45);
 
         // benötigte Klassenerweiterungsmodule werden mitinstalliert
         $this->set_installed_modules('install');
@@ -93,7 +90,7 @@ class gul_categories_image_resize extends StdModule
             case 'deinstall':
                 foreach ($this->needed_class_extensions as $ext)
                 {
-            		xtc_db_query("DELETE FROM " . TABLE_CONFIGURATION . " WHERE configuration_key LIKE '" . $ext['module'] . "'_%'");
+            	    xtc_db_query("DELETE FROM " . TABLE_CONFIGURATION . " WHERE configuration_key LIKE '" . $ext['module'] . "'_%'");
                     
                     $module_installed_string = 'MODULE_' . $ext['class'] . '_INSTALLED';
                     $module_installed = str_replace($ext['file'], '', $module_installed_string);
@@ -123,9 +120,9 @@ class gul_categories_image_resize extends StdModule
             $this->deleteConfiguration('CATEGORIES_IMAGE_THUMBNAIL_HEIGHT');
             $this->deleteConfiguration('CATEGORIES_IMAGE_THUMBNAIL_WIDTH');
             $this->deleteConfiguration('CATEGORIES_IMAGE_THUMBNAIL_MERGE');
-		}
+	}
 
-		// Klassenerweiterungsmodul wird zeitgleich deinstalliert
+	// Klassenerweiterungsmodul wird zeitgleich deinstalliert
         $this->set_installed_modules('deinstall');
     }
 }
