@@ -8,7 +8,7 @@ class categories_image_resize extends StdModule
 {
     public function __construct()
     {
-        $this->init('CATEGORIES_IMAGE_RESIZE');
+        $this->init('MODULE_CATEGORIES_IMAGE_RESIZE');
         
         //define needed class extensions
         $this->needed_class_extensions = array();
