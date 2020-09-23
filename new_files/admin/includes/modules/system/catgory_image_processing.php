@@ -8,7 +8,7 @@ class gul_category_image_processing extends StdModule
 {
     public function __construct()
     {
-        $this->init('MODULE_CATEGORY_IMAGE_PROCESSING');
+        $this->init('CATEGORY_IMAGE_PROCESSING');
         
         $this->properties = array();
         $this->files = array();
