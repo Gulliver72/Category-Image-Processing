@@ -8,7 +8,7 @@ class gul_category_image_processing extends StdModule
 {
     public function __construct()
     {
-        $this->init('CATEGORY_IMAGE_PROCESSING');
+        $this->init('MODULE_GUL_CATEGORY_IMAGE_PROCESSING');
         
         $this->properties = array();
         $this->files = array();
@@ -21,6 +21,9 @@ class gul_category_image_processing extends StdModule
         $this->post_params = array();
 
         $this->properties['form_edit'] = xtc_draw_form('modules', FILENAME_MODULE_EXPORT, 'set=' . $_GET['set'] . '&module=' . $this->code . '&action=custom', 'post', 'id="form_image_processing"');
+    
+        global $current_page;
+        $this->module_filename = $current_page;
     }
 
     public function display() {
@@ -84,7 +87,14 @@ class gul_category_image_processing extends StdModule
 
         $this->logfile = str_replace('*', $rData['file_time'], $this->logfile);
 
-        @ini_set('memory_limit','256M');
+        if (false === ini_set('memory_limit','256M'))
+        {
+            $handle = fopen($this->logfile, "a");
+            fwrite($handle, 'Error ini_set memory_limit' . '|read' . "\n");
+            fclose($handle);
+            exit();
+        }
+
         @xtc_set_time_limit(0);
 
         $this->get_images_files(DIR_FS_CATALOG_CATEGORIES_IMAGES, $offset, $limit);
@@ -180,14 +190,14 @@ class gul_category_image_processing extends StdModule
     public function custom()
     {
         $rData = $this->image_processing_do();
-        $json = array_merge($_POST,$rData);
+        $json = array_merge($_POST, $rData);
         echo json_encode($json);
         exit();
     }
 
     public function get_images_files($filedir,$offset=1,$limit=1)
     {
-        $ext_array = array('gif','jpg','jpeg','png'); //Gültige Dateiendungen
+        $ext_array = array('gif', 'jpg', 'jpeg', 'png'); //Gültige Dateiendungen
         $files = array();
         $this->data_volume = 0;
         
