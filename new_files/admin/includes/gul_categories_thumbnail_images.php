@@ -1,16 +1,4 @@
 <?php
-/* --------------------------------------------------------------
-   $Id: product_thumbnail_images.php 899 2005-04-29 02:40:57Z hhgag $
-
-   XT-Commerce - community made shopping
-   http://www.xt-commerce.com
-
-   Copyright (c) 2003 XT-Commerce
-   --------------------------------------------------------------
-
-   Released under the GNU General Public License
-   --------------------------------------------------------------*/
-
 defined( '_VALID_XTC' ) or die( 'Direct Access to this location is not allowed.' );
 
 if (!isset($categories_image_name_process))
