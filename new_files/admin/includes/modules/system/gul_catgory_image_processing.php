@@ -236,7 +236,7 @@ class gul_category_image_processing extends StdModule
     {
         parent::remove();
         
-        if (!defined('MODULE_CATEGORIES_IMAGE_RESIZE_STATUS')) {
+        if (!defined('MODULE_GUL_CATEGORIES_IMAGE_RESIZE_STATUS')) {
             $this->deleteConfiguration('CATEGORIES_IMAGE_HEIGHT');
             $this->deleteConfiguration('CATEGORIES_IMAGE_WIDTH');
             $this->deleteConfiguration('CATEGORIES_IMAGE_MERGE');
