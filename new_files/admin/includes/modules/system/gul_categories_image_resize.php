@@ -104,8 +104,8 @@ class gul_categories_image_resize extends StdModule
 
     private function get_needed_class_extensions() {
     
-        $this->needed_class_extensions[] = array('class' => 'MAIN', 'module' => 'MODULE_MAIN_CATIMAGE', 'file' => 'catImage.php');    
-        $this->needed_class_extensions[] = array('class' => 'CATEGORIES', 'module' => 'MODULE_CATEGORIES_CATIMAGERESIZE', 'file' => 'catImageResize.php'); 
+        $this->needed_class_extensions[] = array('class' => 'MAIN', 'module' => 'MODULE_MAIN_GUL_CATIMAGERESIZE', 'file' => 'gul_catImage.php');    
+        $this->needed_class_extensions[] = array('class' => 'CATEGORIES', 'module' => 'MODULE_CATEGORIES_GUL_CATIMAGERESIZE', 'file' => 'gul_catImageResize.php'); 
     }
 
     public function remove()
