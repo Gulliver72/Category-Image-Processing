@@ -4,11 +4,11 @@ defined( '_VALID_XTC' ) or die( 'Direct Access to this location is not allowed.'
 use RobinTheHood\ModifiedStdModule\Classes\StdModule;
 require_once DIR_FS_DOCUMENT_ROOT . '/vendor-no-composer/autoload.php';
 
-class categories_image_resize extends StdModule
+class gul_categories_image_resize extends StdModule
 {
     public function __construct()
     {
-        $this->init('CATEGORIES_IMAGE_RESIZE');
+        $this->init('MODULE_GUL_CATEGORIES_IMAGE_RESIZE');
         
         //define needed class extensions
         $this->needed_class_extensions = array();
@@ -34,7 +34,7 @@ class categories_image_resize extends StdModule
 
         return array('text' => '<br />' . '<div><strong>'.MODULE_CATEGORIES_IMAGE_RESIZE_STATUS_INFO.'</strong></div>' . 
 			         '<br /><br />' . '<div align="center">' . xtc_button(BUTTON_SAVE) .
-			         xtc_button_link(BUTTON_CANCEL, xtc_href_link(FILENAME_MODULE_EXPORT, 'set=' . $_GET['set'] . '&module=categorie_image_resize')) . '</div>'
+			         xtc_button_link(BUTTON_CANCEL, xtc_href_link(FILENAME_MODULE_EXPORT, 'set=' . $_GET['set'] . '&module=' . $this->code . ')) . '</div>'
 			         );
 
     }
@@ -55,7 +55,7 @@ class categories_image_resize extends StdModule
     {
         parent::install();
         
-		// Einstellungen Kategoriebilder installieren, wenn Modul Imageprocessing Kategoriebilder nicht installiert ist
+	// Einstellungen Kategoriebilder installieren, wenn Modul Imageprocessing Kategoriebilder nicht installiert ist
         if (!defined('CATEGORIES_IMAGE_HEIGHT')) $this->addConfiguration('CATEGORIES_IMAGE_HEIGHT', '300', 4, 40);
         if (!defined('CATEGORIES_IMAGE_WIDTH')) $this->addConfiguration('CATEGORIES_IMAGE_WIDTH', '300', 4, 41);
         if (!defined('CATEGORIES_IMAGE_MERGE')) $this->addConfiguration('CATEGORIES_IMAGE_MERGE', '', 4, 44);
@@ -112,7 +112,7 @@ class categories_image_resize extends StdModule
     {
         parent::remove();
         
-        if (!defined('MODULE_STEP_CAT_IMAGE_PROCESS_STATUS'))
+        if (!defined('MODULE_GUL_CATEGORY_IMAGE_PROCESSING_STATUS'))
         {
             $this->deleteConfiguration('CATEGORIES_IMAGE_HEIGHT');
             $this->deleteConfiguration('CATEGORIES_IMAGE_WIDTH');
