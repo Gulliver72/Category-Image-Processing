@@ -20,15 +20,15 @@ class gul_catImageResize extends StdModule
     //--- BEGIN CUSTOM  CLASS METHODS ---//
     function categories_image_process($categories_image_name, $categories_image_name_process)
     {
-		    if (defined('MODULE_GUL_CATEGORIES_IMAGE_RESIZE_STATUS') && MODULE_GUL_CATEGORIES_IMAGE_RESIZE_STATUS == 'true')
+	if (defined('MODULE_GUL_CATEGORIES_IMAGE_RESIZE_STATUS') && MODULE_GUL_CATEGORIES_IMAGE_RESIZE_STATUS == 'true')
         {
             //image processing
             $this->image_process($categories_image_name, $categories_image_name_process);
 
             //set file rights
             $this->set_categories_images_file_rights($categories_image_name);
-		    }
-	  }
+	}
+    }
     
     function delete_category_image($category_image)
     {
@@ -44,8 +44,8 @@ class gul_catImageResize extends StdModule
 
     function image_process($categories_image_name, $categories_image_name_process)
     {
-        include(DIR_FS_ADMIN . DIR_WS_INCLUDES . 'categories_info_images.php');
-        include(DIR_FS_ADMIN . DIR_WS_INCLUDES . 'categories_thumbnail_images.php');
+        include(DIR_FS_ADMIN . DIR_WS_INCLUDES . 'gul_categories_info_images.php');
+        include(DIR_FS_ADMIN . DIR_WS_INCLUDES . 'gul_categories_thumbnail_images.php');
     }
 
     //set categories images file rights
