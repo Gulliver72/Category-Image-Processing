@@ -22,10 +22,10 @@ $a = new image_manipulation(DIR_FS_CATALOG_CATEGORIES_IMAGES . $categories_image
 
 if (defined('CATEGORIES_IMAGE_THUMBNAIL_MERGE') && CATEGORIES_IMAGE_THUMBNAIL_MERGE != '')
 {
-    $string=str_replace("'", '', CATEGORIES_IMAGE_THUMBNAIL_MERGE);
-    $string=str_replace(')', '', $string);
-    $string=str_replace('(', DIR_FS_CATALOG_IMAGES, $string);
-    $array=explode(',', $string);
+    $string = str_replace("'", '', CATEGORIES_IMAGE_THUMBNAIL_MERGE);
+    $string = str_replace(')', '', $string);
+    $string = str_replace('(', DIR_FS_CATALOG_IMAGES, $string);
+    $array = explode(',', $string);
     $a->merge($array[0], $array[1], $array[2], $array[3], $array[4]);
 }
 
